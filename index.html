@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circle — Eritrean Youth Community</title>
+<meta name="description" content="A real, live space for Eritrean girls and boys to meet, chat, and call — only with people who've actually joined.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="weave-strip top"></div>
+<div class="weave-strip bottom"></div>
+
+<div class="app">
+
+  <!-- WELCOME -->
+  <div class="screen active" id="screen-welcome">
+    <div class="hero" id="heroCard">
+
+      <!-- 3D-styled pitch scene: kids playing soccer at dusk -->
+      <div class="pitch-scene">
+        <div class="sun-glow"></div>
+        <svg viewBox="0 0 600 230" preserveAspectRatio="xMidYMax slice">
+          <defs>
+            <pattern id="stripes" width="40" height="230" patternUnits="userSpaceOnUse">
+              <rect width="20" height="230" fill="#ffffff"/>
+            </pattern>
+            <radialGradient id="ballShade" cx="35%" cy="28%" r="75%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="55%" stop-color="#e4e0d6"/>
+              <stop offset="100%" stop-color="#b6b0a2"/>
+            </radialGradient>
+            <radialGradient id="pitchLight" cx="50%" cy="0%" r="90%">
+              <stop offset="0%" stop-color="#3c9660"/>
+              <stop offset="100%" stop-color="#123f28"/>
+            </radialGradient>
+            <linearGradient id="kit1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f0c165"/>
+              <stop offset="100%" stop-color="#c98f2b"/>
+            </linearGradient>
+            <linearGradient id="kit2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#d4657a"/>
+              <stop offset="100%" stop-color="#9a2f42"/>
+            </linearGradient>
+            <radialGradient id="sunRay" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#f4dfa0" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#f4dfa0" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- sun / stadium light glow -->
+          <circle cx="300" cy="55" r="90" fill="url(#sunRay)"/>
+
+          <!-- stadium lights, far background -->
+          <g opacity="0.55">
+            <rect x="30" y="20" width="4" height="40" fill="#2a1f18"/>
+            <circle cx="32" cy="18" r="7" fill="#f4dfa0"/>
+            <rect x="560" y="14" width="4" height="46" fill="#2a1f18"/>
+            <circle cx="562" cy="12" r="7" fill="#f4dfa0"/>
+          </g>
+
+          <!-- pitch with perspective + soft top-down light -->
+          <polygon points="0,230 600,230 470,120 130,120" fill="url(#pitchLight)"/>
+          <polygon points="0,230 600,230 470,120 130,120" fill="url(#stripes)" opacity="0.14"/>
+
+          <!-- scattered grass blade texture -->
+          <g opacity="0.35" stroke="#0f3c26" stroke-width="1" stroke-linecap="round">
+            <path d="M60 215 l-2 -8 M90 222 l2 -9 M140 208 l-2 -7 M180 218 l2 -8 M220 226 l-2 -9 M260 210 l2 -7 M320 224 l-2 -9 M380 214 l2 -8 M430 220 l-2 -8 M480 208 l2 -7 M520 222 l-2 -9 M560 216 l2 -8"/>
+          </g>
+
+          <line x1="300" y1="120" x2="300" y2="230" stroke="#eaf4ea" stroke-width="2" opacity="0.5"/>
+          <ellipse cx="300" cy="175" rx="55" ry="14" fill="none" stroke="#eaf4ea" stroke-width="2" opacity="0.5"/>
+          <line x1="130" y1="120" x2="0" y2="230" stroke="#eaf4ea" stroke-width="2" opacity="0.35"/>
+          <line x1="470" y1="120" x2="600" y2="230" stroke="#eaf4ea" stroke-width="2" opacity="0.35"/>
+
+          <!-- grounding shadows -->
+          <ellipse cx="195" cy="207" rx="34" ry="9" fill="#0d3a22" opacity="0.55"/>
+          <ellipse cx="400" cy="200" rx="30" ry="8" fill="#0d3a22" opacity="0.55"/>
+          <ellipse cx="300" cy="192" rx="14" ry="4" fill="#0d3a22" opacity="0.5"/>
+
+          <!-- Kid 1 (gold kit) mid-kick, left -->
+          <g transform="translate(150,120)">
+            <ellipse cx="45" cy="86" rx="12" ry="5" fill="#0d3a22" opacity="0.35"/>
+            <path d="M40 46 Q30 62 42 82 L52 82 Q58 64 50 46 Z" fill="#1a4d2c"/>
+            <path d="M50 46 Q66 54 70 74 L60 78 Q52 62 50 46 Z" fill="#256b3c"/>
+            <rect x="34" y="26" width="24" height="26" rx="9" fill="url(#kit1)"/>
+            <circle cx="46" cy="16" r="11" fill="#8a5836"/>
+            <path d="M35 12 Q46 -2 57 12 Q57 4 46 2 Q35 4 35 12Z" fill="#241a12"/>
+            <path d="M30 30 Q18 24 10 34" stroke="url(#kit1)" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <path d="M60 32 Q70 22 68 12" stroke="url(#kit1)" stroke-width="7" stroke-linecap="round" fill="none"/>
+          </g>
+
+          <!-- Ball (animated in CSS: floats + spins) -->
+          <g id="ball3d" transform="translate(255,168)" style="transform-box:fill-box; transform-origin:center;">
+            <circle r="15" fill="url(#ballShade)" stroke="#9a958a" stroke-width="1"/>
+            <path d="M-5 -8 L5 -8 L8 0 L0 7 L-8 0 Z" fill="#26211b" opacity="0.85"/>
+            <path d="M-15 -3 L-5 -8 M15 -3 L5 -8 M-9 12 L0 7 M9 12 L0 7" stroke="#26211b" stroke-width="1.4" opacity="0.65"/>
+          </g>
+          <path d="M270 168 Q285 150 300 140" stroke="#f4dfa0" stroke-width="2" stroke-dasharray="2 5" opacity="0.5" fill="none"/>
+
+          <!-- Kid 2 (clay kit) mid-kick, right -->
+          <g transform="translate(380,112)">
+            <ellipse cx="30" cy="90" rx="12" ry="5" fill="#0d3a22" opacity="0.35"/>
+            <path d="M18 48 Q10 66 22 88 L32 88 Q36 68 28 48 Z" fill="#7a2f22"/>
+            <path d="M28 48 Q44 40 54 52 L46 60 Q36 54 28 48 Z" fill="#b5502e"/>
+            <rect x="14" y="28" width="24" height="26" rx="9" fill="url(#kit2)"/>
+            <circle cx="26" cy="18" r="11" fill="#6b4327"/>
+            <path d="M15 14 Q26 0 37 14 Q37 6 26 4 Q15 6 15 14Z" fill="#1c130c"/>
+            <path d="M14 34 Q2 40 -4 52" stroke="url(#kit2)" stroke-width="7" stroke-linecap="round" fill="none"/>
+            <path d="M38 30 Q50 26 54 16" stroke="url(#kit2)" stroke-width="7" stroke-linecap="round" fill="none"/>
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero-inner">
+        <div class="eyebrow">A gathering place</div>
+        <div class="tigrinya-title">ሰላም — Selam</div>
+        <h1 class="eng-title">Welcome to the Circle</h1>
+        <p class="subtitle">A real, live space for Eritrean girls and boys to meet, chat, and talk —
+        like friends after a match on the pitch. Only with people who've actually joined. No strangers, no bots.</p>
+        <button class="btn3d" id="enterBtn">Enter the Circle</button>
+        <div class="note">Kemey alekha/alekhi? — glad you're here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHOICE -->
+  <div class="screen" id="screen-choice">
+    <div class="choice-wrap">
+      <h2 class="choice-title">Who's joining today?</h2>
+      <p class="choice-sub">Pick your circle to see who's really online right now</p>
+      <div class="choice-grid">
+        <div class="tilt-card girl" data-group="girl">
+          <div class="tilt-icon">👧🏽</div>
+          <h3>Girls Circle</h3>
+          <p>Real friends, real conversation</p>
+        </div>
+        <div class="tilt-card boy" data-group="boy">
+          <div class="tilt-icon">👦🏽</div>
+          <h3>Boys Circle</h3>
+          <p>Real friends, real conversation</p>
+        </div>
+      </div>
+      <span class="back-link" id="backToWelcome">← back</span>
+    </div>
+  </div>
+
+  <!-- NAME -->
+  <div class="screen" id="screen-name">
+    <div class="name-card">
+      <span class="tag" id="groupTag">Group</span>
+      <h2>What's your name?</h2>
+      <p class="hint">This is how real people in the circle will see and call you</p>
+      <input type="text" id="nameInput" placeholder="Type your name..." maxlength="20">
+      <div id="nameError"></div>
+      <button class="btn3d" id="joinBtn">Join the Circle</button>
+    </div>
+    <span class="back-link" id="backToChoice" style="width:100%">← choose a different circle</span>
+  </div>
+
+  <!-- ROOM (chat + calling) -->
+  <div class="screen" id="screen-room">
+    <div class="room-wrap">
+      <div class="panel sidebar">
+        <h4>Online now</h4>
+        <div class="online-list" id="onlineList"><div class="online-empty">Looking for people online…</div></div>
+        <button class="leave-room" id="leaveBtn">Leave circle</button>
+      </div>
+      <div class="panel">
+        <div class="chat-header">
+          <div class="grp-icon" id="chatIcon">👧🏽</div>
+          <div>
+            <h3 id="chatGroupName">Girls Circle</h3>
+            <span>Real, shared chat</span>
+          </div>
+        </div>
+        <div class="chat-body" id="chatBody"><div class="empty-chat">Loading conversation…</div></div>
+        <div class="chat-input-bar">
+          <input type="text" id="chatInput" placeholder="Type a message...">
+          <button id="sendBtn">➤</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Call overlay -->
+<div class="call-overlay" id="callOverlay">
+  <div class="call-card">
+    <div class="call-avatar" id="callAvatarLetter">?</div>
+    <div class="call-name" id="callPeerName">—</div>
+    <div class="call-status" id="callStatus">Calling…</div>
+    <div class="call-actions" id="callActions"></div>
+  </div>
+</div>
+<audio id="remoteAudio" autoplay></audio>
+<div class="toast" id="toast"></div>
+
+<script src="js/app.js" defer></script>
+</body>
+</html>
