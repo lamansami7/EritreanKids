@@ -11,6 +11,16 @@ users, no bots, only people who've actually joined.
 - Plain HTML/CSS/JS — no build step, deploys anywhere static files work (GitHub Pages,
   Netlify, Vercel, etc).
 
+## A note on the "Enter" button
+
+`js/app.js` loads Supabase dynamically and wraps it in a try/catch, so the
+whole page — including the Enter button — works even before you've set up
+Supabase or if it's opened straight from disk. Only chat, presence, and
+calling need Supabase; navigation never does. If you still see a blank
+console error, run it through a local server (step 3) rather than
+double-clicking `index.html` — the Supabase import over HTTPS behaves more
+reliably from `http://` than from `file://`.
+
 ## 1. Create a Supabase project
 
 1. Go to [supabase.com](https://supabase.com) → New project.
